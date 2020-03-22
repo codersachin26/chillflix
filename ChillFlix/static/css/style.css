@@ -16,6 +16,21 @@ header{
 
 }
 
+.container ul{
+  padding: 0px;
+  margin: 0px;
+}
+
+.container li {
+  list-style: none;
+  float: left;
+  width: 20%;
+  height: 300px;
+
+
+  margin: 40px 15px 50px 35px;
+}
+
 .head{
 
   margin-top: -100px;
@@ -51,11 +66,14 @@ header{
 }
 
 .container{
-  padding: 100px;
-  padding-bottom: 400px;
-  border: 4px gray solid;
-display: flex;
+  width: 97%;
+  overflow: hidden;
+  align-content: center;
+  margin: 20px auto;
+  height: 600px auto;
 
+  padding:20px;
+  border: 4px rgb(95, 84, 84) solid;
 
 }
 
@@ -73,15 +91,15 @@ display: flex;
 }
 
 .movie-box{
-  width: 300px;
-  height: 400px;
+  width:270px;
+  height:340px;
   margin-top: 10px;
-  margin-left: -40px;
-  margin-right: 50px;
+  margin-left: 10px;
+
   background-color: grey;
 }
 .movie-box img{
-  width:290px;
-  height:250px;
+  width:265px;
+  height:240px;
   border: 2px grey solid;
 }

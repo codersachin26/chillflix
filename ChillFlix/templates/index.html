@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="en">
 <head>
 
@@ -30,50 +31,40 @@
   <div class="container">
 
 
-     <div class="movie-box">
-       <img src="{% static 'css\Venom.jpg'%}" alt="movies img">
-       <span>movie name</span><br>
-       <span>year</span><br>
-        <span>audio</span>
 
-     </div>
 
-     <div class="movie-box">
-       <img src="{% static 'css\Venom.jpg'%}" alt="movies img">
-       <span>movie name</span><br>
-       <span>year</span><br>
-        <span>audio</span>
 
-     </div>
 
+
+<ul>
+
+
+      {% for i in movie_info %}
+        <li>
+        	<a href="#">
+            
 
      <div class="movie-box">
-       <img src="{% static 'css\Venom.jpg'%}" alt="movies img">
-       <span>movie name</span><br>
-       <span>year</span><br>
-        <span>audio</span>
+
+         <img src="/media/{{i.M_img}}">
+       <span>{{i.M_name}}</span><br>
+       <span>{{i.M_released_date}}</span><br>
+        <span>{{i.M_languages}}</span><br>
+         <span>{{i.M_quality}}</span>
 
      </div>
+     </a>
+      </li>
+     {%endfor%}
 
 
-     <div class="movie-box">
-       
-       <img src="{% static 'css\Venom.jpg'%}" alt="movies img">
-       <span>movie name</span><br>
-       <span>year</span><br>
-        <span>audio</span>
-
-     </div>
-
-
-
-
+   </ul>
   </div>
 
 
 <footer>
 <div class="footer">
-   <span>Copyright &(copy)</span><br>
+   <span>Copyright &copy 2020</span><br>
   <a href="#">About</a><br>
   <a href="#">Contact</a><br>
   <a href="#">Report</a><br>
