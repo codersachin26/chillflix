@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 
+
 <html lang="en">
 <head>
 
@@ -41,7 +42,8 @@
 
       {% for i in movie_info %}
         <li>
-        	<a href="#">
+        	<a href="{% url 'movie_info' i.id %}">
+            
             
 
      <div class="movie-box">
