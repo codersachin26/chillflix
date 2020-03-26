@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'Home_app.apps.HomeAppConfig',
+    'Home_apps.apps.HomeAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'ChillFlix.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'chillflix',
+        'NAME': 'chillflix1',
         'USER':'root',
         'PASSWORD':'',
         'PORT':'3306',

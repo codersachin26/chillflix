@@ -14,8 +14,8 @@
 
   </div>
        <div class="head">
-      <span><a href="#">Home</a></span>
-      <span><a href="#">Latest</a></span>
+      <span><a href="/">Home</a></span>
+      <span><a href="/">Latest</a></span>
       <span><a href="#">Best</a></span>
       <span><a href="#">All Categories</a></span>
         <div class="search-btn">
@@ -32,85 +32,36 @@
 
   <div class="left-container">
 
+    <h1>Related Movies</h1>
+
 
 
   	<ul>
 
-
+    {% for m_relate in m_related %}
      
         <li>
-        	<a href="#">
+        	<a href="{% url 'movie_info' m_relate.id %}">
             
             
 
      <div class="movie-box">
-
-         <img src="/media/{{i.M_img}}">
-       <span>{{i.M_name}}</span><br>
-       <span>{{i.M_released_date}}</span><br>
-        <span>{{i.M_languages}}</span><br>
-         <span>{{i.M_quality}}</span>
-
-     </div>
-     </a>
-      </li>
-
-      <li>
-        	<a href="#">
-            
-            
-
-     <div class="movie-box">
-
-         <img src="/media/{{i.M_img}}">
-       <span>{{i.M_name}}</span><br>
-       <span>{{i.M_released_date}}</span><br>
-        <span>{{i.M_languages}}</span><br>
-         <span>{{i.M_quality}}</span>
-
-     </div>
-     </a>
-      </li>
-      <li>
-        	<a href="#">
-            
-            
-
-     <div class="movie-box">
-
-         <img src="/media/{{i.M_img}}">
-       <span>{{i.M_name}}</span><br>
-       <span>{{i.M_released_date}}</span><br>
-        <span>{{i.M_languages}}</span><br>
-         <span>{{i.M_quality}}</span>
-
-     </div>
-     </a>
-      </li>
-      <li>
-        	<a href="#">
-            
-            
-
-     <div class="movie-box">
-
-         <img src="/media/{{i.M_img}}">
-       <span>{{i.M_name}}</span><br>
-       <span>{{i.M_released_date}}</span><br>
-        <span>{{i.M_languages}}</span><br>
-         <span>{{i.M_quality}}</span>
-
-     </div>
-     </a>
-      </li>
+      <img src="/media/{{m_relate.M_img}}">
 
 
-
+       <span >{{m_relate.M_name}}</span><br>
       
+        <span>{{m_relate.M_languages}}</span><br>
+         <span>{{m_relate.M_quality}}</span>
+
+     </div>
+     </a>
+      </li>
+
+      {% endfor %}
 
 
 
-    
 
 
    </ul>
@@ -126,7 +77,7 @@
 
   
   <div class="right-container">
-    <img src="{% static 'css\john_wick2.jpg' %}" alt="">
+    <img src="/media/{{movie.M_pics}}" alt="">
 
     <div class="watch-btn">
       <button type="button" name="button">Watch</button>
@@ -136,18 +87,22 @@
     <div class="movie-info">
 
    
-    <h1>movie.name</h1><h6>movie.duration | movie.categories</h6>
-    <h3>Audio: movie.audios</h3>
-    <h3>Quality: movie.quality</h3>
-    <h3>Creator: movie.maker</h3>
+    <h1>{{m.M_name}}</h1><h6>{{movie.M_time_length}} | {{movie.M_Categories}}</h6>
+    <h3>Audio: {{m.M_languages}}</h3>
+    <h3>Quality: {{m.M_quality}}</h3>
+    <h3>Creator: {{movie.M_creator}}</h3>
 
       <h1>Storyline</h1><br>
-      <span>movie.story   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, blanditiis cupiditate! Necessitatibus, sunt voluptates soluta sed magnam quo dolorum nihil quis eaque aliquam aut asperiores aliquid aperiam! Ratione, exercitationem quam.</span>
+      <span>{{movie.M_story}}</span>
        <br>
        <h1>Screenshots</h1><br>
-       <img src="{% static 'css\joker-img.jpg' %}" alt=""><br>
-       <img src="{% static 'css\joker-img.jpg' %}" alt="">
-       <img src="{% static 'css\joker-img.jpg' %}" alt="">
+          
+       <img src="/media/{{i.screenshot1}}" alt=""><br>
+       <img src="/media/{{i.screenshot2}}" alt=""><br>
+       <img src="/media/{{i.screenshot3}}" alt=""><br>
+
+        
+       
     </div>
 
   </div>

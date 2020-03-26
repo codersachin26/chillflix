@@ -11,6 +11,8 @@ class Movie_info(models.Model):
     def __str__(self):
         return self.M_name
 
+    
+
 
 class Movies(models.Model):
     movie_info = models.ForeignKey('Movie_info',on_delete=models.CASCADE)
@@ -23,4 +25,25 @@ class Movies(models.Model):
 
     def __str__(self):
         return self.movie_info.M_name+' '+ self.M_creator
+
+
+
+class Movie_file(models.Model):
+    movie_info = models.ForeignKey('Movie_info',on_delete=models.CASCADE)
+    _480p = models.FileField(upload_to='_480p')
+    _720p = models.FileField(upload_to='_720p/' ,default='None')
+    _1080p =models.FileField(upload_to='_1080p',default='None')
+
+    def __str__(self):
+        return self.movie_info.M_name+' files'
+
+
+class M_screenshots(models.Model):
+    movie_info = models.ForeignKey('Movie_info',on_delete=models.CASCADE)
+    screenshot1 = models.ImageField(upload_to='img1', default='None')
+    screenshot2 = models.ImageField(upload_to='img2',default='None')
+    screenshot3 = models.ImageField(upload_to='img3',default='None')
+
+    def __str__(self):
+        return self.movie_info.M_name+' screenshots'
 

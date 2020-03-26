@@ -4,6 +4,8 @@
 
 <html lang="en">
 <head>
+  {%block style%}
+  {% endblock%}
 
   <link rel="stylesheet" href="{% static 'css\style.css'%}">
     <meta charset="UTF-8">
@@ -16,20 +18,26 @@
 
   </div>
        <div class="head">
-      <span><a href="#">Home</a></span>
-      <span><a href="#">Latest</a></span>
-      <span><a href="#">Best</a></span>
+      <span><a href="/">Home</a></span>
+      <span><a href="lates">Latest</a></span>
+      <span><a href="#">Web Series</a></span>
       <span><a href="#">All Categories</a></span>
         <div class="search-btn">
-
+              <form action="find_movie">
         <input type="text" name="search" value="" placeholder="Search here">
-          <button type="button" name="button">Search</button>
+          <button type="submit" name="button">Search</button>
+             </form>
            </div>
 
     </div>
   </header>
 
   <div class="container">
+
+    {% block body%}
+
+
+{%endblock%}
 
 
 
@@ -40,7 +48,7 @@
 <ul>
 
 
-      {% for i in movie_info %}
+  {% for i in movie_info %}
         <li>
         	<a href="{% url 'movie_info' i.id %}">
             
@@ -57,7 +65,9 @@
      </div>
      </a>
       </li>
-     {%endfor%}
+
+      {% endfor %}
+     
 
 
    </ul>
@@ -67,9 +77,9 @@
 <footer>
 <div class="footer">
    <span>Copyright &copy 2020</span><br>
-  <a href="#">About</a><br>
-  <a href="#">Contact</a><br>
-  <a href="#">Report</a><br>
+  <a href="about_us">About</a><br>
+  <a href="contact">Contact</a><br>
+  <a href="report">Report</a><br>
 
 </div>
 </footer>
