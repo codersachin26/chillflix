@@ -1,8 +1,11 @@
 from django.db import models
+import os
+import datetime
 
 # Create your models here.
 class Movie_info(models.Model):
     M_name = models.CharField(max_length=50)
+    M_type = models.CharField(max_length=15,default='movie')
     M_released_date = models.DateField()
     M_languages = models.CharField(max_length=30)
     M_img  = models.ImageField(upload_to='movie_poster/')
@@ -37,6 +40,8 @@ class Movie_file(models.Model):
     def __str__(self):
         return self.movie_info.M_name+' files'
 
+    
+
 
 class M_screenshots(models.Model):
     movie_info = models.ForeignKey('Movie_info',on_delete=models.CASCADE)
@@ -47,3 +52,14 @@ class M_screenshots(models.Model):
     def __str__(self):
         return self.movie_info.M_name+' screenshots'
 
+
+
+class UserComments(models.Model):
+    movie_info = models.ForeignKey('Movie_info',on_delete=models.CASCADE)
+    U_msg = models.CharField(max_length=100)
+    U_Email_id = models.EmailField()
+    U_name = models.CharField(max_length=25)
+    cmt_date = models.DateTimeField(default= datetime.datetime.today())
+
+    def __str__(self):
+        return self.U_name

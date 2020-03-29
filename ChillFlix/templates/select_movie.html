@@ -16,7 +16,7 @@
        <div class="head">
       <span><a href="/">Home</a></span>
       <span><a href="/">Latest</a></span>
-      <span><a href="#">Best</a></span>
+      <span><a href="#">Web Series</a></span>
       <span><a href="#">All Categories</a></span>
         <div class="search-btn">
 
@@ -77,11 +77,16 @@
 
   
   <div class="right-container">
+   
     <img src="/media/{{movie.M_pics}}" alt="">
+
 
     <div class="watch-btn">
       <button type="button" name="button">Watch</button>
-       <button type="button" name="button">Download</button>
+      {% for i in Q%}
+     <a href="sendfile/{{movie.id}}/_{{i}}"> <button type="button" name="button">{{i}}</button></a>
+      
+      {% endfor %}
     </div>
 
     <div class="movie-info">
@@ -113,10 +118,14 @@
   <div class="cmt">
   	
   <h1>COMMENTS</h1><br>
-  <span class="msg">Say something?</span><textarea placeholder="what u want 2 say" name="cmts"></textarea><br>
+  <form action="usercmt" method="POST">
+    {% csrf_token %} 
+  <span class="msg">Say something?</span><textarea placeholder="what u want 2 say" name="usermsg"></textarea><br>
   <input type="text" placeholder="UserName" name="username"><br>
+  <input  type="hidden" name="id" value="{{movie.id}}">
   <input type="email" placeholder="Email" name="email"><br>
-  <button type="button">Add Comment</button>
+  <button type="submit">Add Comment</button>
+</form>
 
   <hr>
   <hr>
@@ -163,7 +172,7 @@
   <footer>
   <div class="footer">
      <span>Copyright &copy 2020</span><br>
-    <a href="#">About</a><br>
+    <a href="\about_us">About</a><br>
     <a href="#">Contact</a><br>
     <a href="#">Report</a><br>
 

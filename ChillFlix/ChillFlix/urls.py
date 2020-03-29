@@ -21,12 +21,17 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Home_apps.urls')),
    # path('movie_info/(?P<id>[0-9]+)/$',include('Home_apps.urls')),
+   
+   
+    
+     
+   
     path('movie_info/<int:id>',include('Home_apps.urls')),
-    path('lates',include('Home_apps.urls')),
-     path('find_movie',include('Home_apps.urls')),
-      path('about_us',include('Home_apps.urls')),
-    path('contact',include('Home_apps.urls')),
-    path('report',include('Home_apps.urls')),
+    path('movie_info/<int:id>/sendfile/<int:ids>/<str:Q>/',include('Home_apps.urls')),
+  path('movie_info/<int:id>/usercmt',include('Home_apps.urls')),
+
+    
+      
   
 ]
 
