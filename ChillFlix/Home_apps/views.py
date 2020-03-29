@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Movie_info,Movies,Movie_file,M_screenshots,UserComments
 from django.http import HttpResponse ,FileResponse
 
@@ -14,6 +14,7 @@ def movie_info(request,id):
     movies = Movie_info.objects.get(id=id)
     id_m = Movies.objects.filter(M_Categories=movie.M_Categories)
     screenshots = M_screenshots.objects.get(movie_info=id)
+    usercmts = UserComments.objects.filter(movie_info=id).order_by('-cmt_date')[:4]
     v = Movie_file.objects.get(id=1)
     p = v._480p
     m_qulaties = movies.M_quality
@@ -25,7 +26,7 @@ def movie_info(request,id):
         
     
 
-    return render(request,'select_movie.html',{'movie':movie,'Q':Q,'m':movies,'m_related':m_related,'i':screenshots,'kk':p})
+    return render(request,'select_movie.html',{'movie':movie,'usercmts':usercmts,'Q':Q,'m':movies,'m_related':m_related,'i':screenshots,'kk':p})
 
 
 def lates(request):
@@ -95,7 +96,7 @@ def usercmt(request):
     userdata.movie_info = Movie_info.objects.get(id=id)
     userdata.U_name = username
     userdata.save()
-    return HttpResponse('Done')
+    return redirect('movie_info',id)
 
 
 

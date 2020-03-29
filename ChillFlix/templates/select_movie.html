@@ -1,34 +1,15 @@
-<!DOCTYPE html>
+{% extends 'index.html' %}
 {% load static %}
-<html lang="en">
-<head>
-  <link rel="stylesheet" href="{% static 'css\movie_css.css'%}">
-    <meta charset="UTF-8">
-    <title>movie-name</title>
-</head>
-<body>
 
-  <header >
-  <div class="title">
-    <img src="{% static 'css\title3.png'%}" alt="website title">
+{%block style%}
 
-  </div>
-       <div class="head">
-      <span><a href="/">Home</a></span>
-      <span><a href="/">Latest</a></span>
-      <span><a href="#">Web Series</a></span>
-      <span><a href="#">All Categories</a></span>
-        <div class="search-btn">
-
-        <input type="text" name="search" value="" placeholder="Search here">
-          <button type="button" name="button">Search</button>
-           </div>
-
-    </div>
-  </header>
+<link rel="stylesheet" href="{% static 'css\movie_css.css'%}">
+  {% endblock%}
 
 
-  <div class="container">
+{% block body%}
+
+<div class="mcontainer">
 
   <div class="left-container">
 
@@ -45,7 +26,7 @@
             
             
 
-     <div class="movie-box">
+     <div class="mmovie-box">
       <img src="/media/{{m_relate.M_img}}">
 
 
@@ -97,8 +78,8 @@
     <h3>Quality: {{m.M_quality}}</h3>
     <h3>Creator: {{movie.M_creator}}</h3>
 
-      <h1>Storyline</h1><br>
-      <span>{{movie.M_story}}</span>
+      <h1>Storyline</h1>
+      <span >{{movie.M_story}}</span>
        <br>
        <h1>Screenshots</h1><br>
           
@@ -131,53 +112,34 @@
   <hr>
 
 
+ {% for i in usercmts%}
+
   <div class="usercmt">
    
-    <h1>UserName</h1>
-    <h7>2h ago</h7>
+    <h1>{{i.U_name}}</h1>
+    <h7>{{i.cmt_date}}</h7>
     <div class="text">
-      <span>excelent movie Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi ea maxime hic. Vel repellat veniam culpa eius blanditiis neque ipsam dolore, cupiditate, iure distinctio eveniet quidem, temporibus quia! Reiciendis, hic.</span>
+      <span>{{i.U_msg}}</span>
     </div>
 
   </div>
 
-  <div class="usercmt">
-   
-    <h1>UserName</h1>
-    <h7>2h ago</h7>
-    <div class="text">
-      <span>excelent movie Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi ea maxime hic. Vel repellat veniam culpa eius blanditiis neque ipsam dolore, cupiditate, iure distinctio eveniet quidem, temporibus quia! Reiciendis, hic.</span>
-    </div>
+  {% endfor %}
 
-  </div>
-
-  <div class="usercmt">
-   
-    <h1>UserName</h1>
-    <h7>2h ago</h7>
-    <div class="text">
-      <span>excelent movie Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi ea maxime hic. Vel repellat veniam culpa eius blanditiis neque ipsam dolore, cupiditate, iure distinctio eveniet quidem, temporibus quia! Reiciendis, hic.</span>
-    </div>
-
-  </div>
+  
   
   </div>
 
+</div>
 
 
 
 
-  </div>
 
-  <footer>
-  <div class="footer">
-     <span>Copyright &copy 2020</span><br>
-    <a href="\about_us">About</a><br>
-    <a href="#">Contact</a><br>
-    <a href="#">Report</a><br>
 
-  </div>
-  </footer>
+ 
+   
+    
+{%endblock%}
 
-</body>
-</html>
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="en">
+<head>
+
+  <link rel="stylesheet" href="{% static 'css\style.css'%}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <header>
+  <div class="title">
+    <img src="{% static 'css\title3.png'%}" alt="website title">
+
+  </div>
+       <div class="head">
+      <span><a href="/">Home</a></span>
+      <span><a href="lates">Latest</a></span>
+      <span><a href="Web_Series">Web Series</a></span>
+      <span><a href="#">All Categories</a></span>
+        <div class="search-btn">
+              <form action="find_movie">
+        <input type="text" name="search" value="" placeholder="Search here">
+          <button type="submit">Search</button>
+             </form>
+           </div>
+
+    </div>
+  </header>
+
+  <div class="container">
+
+
+
+
+
+
+
+<ul>
+
+
+ 
+        <li>
+        	<a href="{% url 'movie_info' i.id %}">
+            
+            
+
+     <div class="movie-box">
+
+         <img src="/media/{{i.M_img}}">
+       <span>{{i.M_name}}</span><br>
+       <span>{{i.M_released_date}}</span><br>
+        <span>{{i.M_languages}}</span><br>
+         <span>{{i.M_quality}}</span>
+
+     </div>
+     </a>
+      </li>
+
+     
+     
+
+
+   </ul>
+  </div>
+
+
+<footer>
+<div class="footer">
+   <span>Copyright &copy 2020</span><br>
+  <a href="about_us">About</a><br>
+  <a href="contact">Contact</a><br>
+  <a href="report">Report</a><br>
+
+</div>
+</footer>
+
+
+
+
+
+
+</body>
+</html>

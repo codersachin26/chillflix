@@ -11,6 +11,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
   <header>
   <div class="title">
@@ -31,13 +32,14 @@
 
     </div>
   </header>
+  {% block body%}
 
   <div class="container">
 
-    {% block body%}
+    
 
 
-{%endblock%}
+
 
 
 
@@ -73,7 +75,7 @@
    </ul>
   </div>
 
-
+  {%endblock%}
 <footer>
 <div class="footer">
    <span>Copyright &copy 2020</span><br>
@@ -90,4 +92,5 @@
 
 
 </body>
+
 </html>
