@@ -31,9 +31,17 @@ header{
   margin: 40px 15px 50px 35px;
 }
 
+.cat{
+  margin-left: 270px;
+  margin-top: -60px;
+ 
+}
+
 .head{
 
   margin-top: -100px;
+  width: 100%;
+  background: red;
 
 
 

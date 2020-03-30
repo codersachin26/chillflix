@@ -3,23 +3,27 @@
 {%block style%}
 
 <style>
-    label{
+    .containers label{
         padding: 20px;
         margin: 20px;
     }
 
-    input{
+    .containers input{
         padding: 20px;
         border: 2px solid black;
         background:rgb(105, 105, 105) ;
         margin: 20px;
     }
 
-    input:hover{
+    .containers{
+        margin-bottom: 20px;
+    }
+
+    .containers input:hover{
         border: 2px solid rebeccapurple;
     }
 
-    #btn{
+    #btnn{
         width: 80px;
         margin-left: 50px;
     }
@@ -28,14 +32,14 @@
 
 {% block body %}
 
-<div class="container" style="background-color: antiquewhite;">
+<div class="containers" style="background-color: antiquewhite;">
 
     <h1>Report Broken Links Us</h1>
 <label for="">Your Name</label><input type="text"><br>
 <label for="">Your Email</label><input type="email"><br>
 <label for="">Movie Name</label><input type="text"><br>
 <label for="">Your massage</label><input type="text"><br>
-<input type="button" name="" id="btn" value="Send">
+<input type="button" name="" id="btnn" value="Send">
 
 </div>
 

@@ -22,7 +22,57 @@
       <span><a href="/">Home</a></span>
       <span><a href="lates">Latest</a></span>
       <span><a href="#">Web Series</a></span>
-      <span><a href="#">All Categories</a></span>
+
+      <div class="cat"> 
+        <form action="categories">
+        
+        <select id="categories" name="categories">
+          <option selected>All Categories</option>
+         <option value="Action">Action</option>   
+           <option value="Sci-fiction">Sci-fiction</option>
+             <option value="Comedy">Comedy</option>
+               <option value="Drama">Drama</option>
+        </select>
+        <input type="submit" value="GO">
+      </form></div>
+
+
+     
+     
+      <!-- <script>
+        selectHandler = {
+            clickCount : 0,
+            action : function(select)
+            {
+                selectHandler.clickCount++;
+                if(selectHandler.clickCount%2 == 0)
+                {
+                    selectedValue = select.options[select.selectedIndex].value;
+                    selectHandler.check(selectedValue);
+                }
+            },
+            blur : function() // needed for proper behaviour
+            {
+                if(selectHandler.clickCount%2 != 0)
+                {
+                    selectHandler.clickCount--;
+                }
+            },
+            check : function(value)
+            {
+                // you can customize this
+                alert('Changed! -> ' + value);
+            }
+        }
+    
+    </script>
+    <select onclick="selectHandler.action(this)" onblur="selectHandler.blur()">
+        <option value="value-1"> 1 </option>
+        <option value="value-2"> 2 </option>
+        <option value="value-3"> 3 </option>
+        <option value="value-4"> 4 </option>
+    </select> -->
+
         <div class="search-btn">
               <form action="find_movie">
         <input type="text" name="search" value="" placeholder="Search here">

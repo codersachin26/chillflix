@@ -100,3 +100,14 @@ def usercmt(request):
 
 
 
+
+def categories(request):
+    cat = request.GET.get('categories')
+    print(cat)
+    id_m = Movies.objects.filter(M_Categories=cat)
+    movies = []
+    for i in id_m:
+        movies.append(Movie_info.objects.get(id=i.movie_info.id))
+
+    return render(request,'index.html',{'movie_info':movies})
+    
