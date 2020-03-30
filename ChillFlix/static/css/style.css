@@ -29,12 +29,12 @@ header{
 
 
   margin: 40px 15px 50px 35px;
-} 
+}
 
 .cat{
   margin-left: 270px;
   margin-top: -60px;
- 
+
 }
 
 .head{
@@ -116,11 +116,13 @@ header{
 .next-page{
   width: 70%;
   background-color: rgb(83, 92, 92);
+
+
   height: 50px;
-  margin-top: 400px;
+ margin-bottom: 10px;
   margin-left: 195px;
-  
-  
+
+
 
 
 }
@@ -128,10 +130,10 @@ header{
 .next-page li{
   list-style: none;
   float: left;
-  
+
 }
 
- 
+
 
 
 
@@ -143,5 +145,5 @@ header{
   position: relative;
   top: 10px;
    text-align: center;
-   
+
 }

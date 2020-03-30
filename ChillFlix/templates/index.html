@@ -23,12 +23,12 @@
       <span><a href="lates">Latest</a></span>
       <span><a href="#">Web Series</a></span>
 
-      <div class="cat"> 
+      <div class="cat">
         <form action="categories">
-        
+
         <select id="categories" name="categories">
           <option selected>All Categories</option>
-         <option value="Action">Action</option>   
+         <option value="Action">Action</option>
            <option value="Sci-fiction">Sci-fiction</option>
              <option value="Comedy">Comedy</option>
                <option value="Drama">Drama</option>
@@ -37,8 +37,8 @@
       </form></div>
 
 
-     
-     
+
+
       <!-- <script>
         selectHandler = {
             clickCount : 0,
@@ -64,7 +64,7 @@
                 alert('Changed! -> ' + value);
             }
         }
-    
+
     </script>
     <select onclick="selectHandler.action(this)" onblur="selectHandler.blur()">
         <option value="value-1"> 1 </option>
@@ -86,7 +86,7 @@
 
   <div class="container">
 
-    
+
 
 
 
@@ -103,8 +103,8 @@
   {% for i in movie_info %}
         <li class="li">
         	<a href="{% url 'movie_info' i.id %}">
-            
-            
+
+
 
      <div class="movie-box">
 
@@ -119,14 +119,14 @@
       </li>
 
       {% endfor %}
-     
+
 
 
    </ul>
 
    <br>
 
-
+<!-- 
    <div class="next-page">
      <ul>
      <li>
@@ -136,12 +136,23 @@
     <li><a href="nextpage"> <div class="page-no">4</div></a>
   </li>
 </ul>
-  </div>
+  </div> -->
 
   </div>
 
+  <div class="next-page">
+    <ul>
+    <li>
+   <a href="nextpage"> <div class="page-no">1</div></a></li>
+   <li><a href="nextpage"> <div class="page-no">2</div></a></li>
+   <li><a href="nextpage"> <div class="page-no">3</div></a></li>
+   <li><a href="nextpage"> <div class="page-no">4</div></a>
+ </li>
+</ul>
+ </div>
 
-  
+
+
 
   {%endblock%}
 <footer>
