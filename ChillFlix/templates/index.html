@@ -97,11 +97,11 @@
 
 
 
-<ul>
+<ul class="ul">
 
 
   {% for i in movie_info %}
-        <li>
+        <li class="li">
         	<a href="{% url 'movie_info' i.id %}">
             
             
@@ -123,7 +123,25 @@
 
 
    </ul>
+
+   <br>
+
+
+   <div class="next-page">
+     <ul>
+     <li>
+    <a href="nextpage"> <div class="page-no">1</div></a></li>
+    <li><a href="nextpage"> <div class="page-no">2</div></a></li>
+    <li><a href="nextpage"> <div class="page-no">3</div></a></li>
+    <li><a href="nextpage"> <div class="page-no">4</div></a>
+  </li>
+</ul>
   </div>
+
+  </div>
+
+
+  
 
   {%endblock%}
 <footer>

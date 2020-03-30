@@ -22,14 +22,14 @@ urlpatterns = [
     path('',include('Home_apps.urls')),
    # path('movie_info/(?P<id>[0-9]+)/$',include('Home_apps.urls')),
    
-   
+    
     
      
    
     path('movie_info/<int:id>',include('Home_apps.urls')),
     path('movie_info/<int:id>/sendfile/<int:ids>/<str:Q>/',include('Home_apps.urls')),
   path('movie_info/<int:id>/usercmt',include('Home_apps.urls')),
-   path('categories',include('Home_apps.urls')),
+   
     
       
   

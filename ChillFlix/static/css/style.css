@@ -16,12 +16,12 @@ header{
 
 }
 
-.container ul{
+ .ul{
   padding: 0px;
   margin: 0px;
 }
 
-.container li {
+.li {
   list-style: none;
   float: left;
   width: 20%;
@@ -29,7 +29,7 @@ header{
 
 
   margin: 40px 15px 50px 35px;
-}
+} 
 
 .cat{
   margin-left: 270px;
@@ -110,4 +110,38 @@ header{
   width:265px;
   height:240px;
   border: 2px grey solid;
+}
+
+
+.next-page{
+  width: 70%;
+  background-color: rgb(83, 92, 92);
+  height: 50px;
+  margin-top: 400px;
+  margin-left: 195px;
+  
+  
+
+
+}
+
+.next-page li{
+  list-style: none;
+  float: left;
+  
+}
+
+ 
+
+
+
+.page-no {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(211, 209, 209);
+  margin-left: 20px;
+  position: relative;
+  top: 10px;
+   text-align: center;
+   
 }
