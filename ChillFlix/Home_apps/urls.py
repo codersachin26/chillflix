@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from django.urls import path
+from django.urls import path,re_path
 from . import views
 urlpatterns =[
     path('',views.index,name='home page'),
@@ -13,8 +13,11 @@ urlpatterns =[
      path('about_us',views.about_us,name='about_us'),
      path('contact',views.contact,name='contact'),
      path('report',views.report,name='report'),
-    
-     
-     
+     path('nextpage/<int:no>',views.nextpage,name='nextpage'),
+      path('movie_info/movieplay/<int:id>',views.movieplay,name='movieplay'),
+
+
+
+
 
 ]

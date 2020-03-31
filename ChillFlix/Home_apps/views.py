@@ -6,7 +6,7 @@ from django.http import HttpResponse ,FileResponse
 
 
 def index(request):
-    movie_info = Movie_info.objects.all()
+    movie_info = Movie_info.objects.all()[:4]
     return render(request,'index.html',{'movie_info':movie_info})
 
 def movie_info(request,id):
@@ -23,8 +23,8 @@ def movie_info(request,id):
     for i in id_m:
         if i.movie_info.id!=id:
             m_related.append(Movie_info.objects.get(id=i.movie_info.id))
-        
-    
+
+
 
     return render(request,'select_movie.html',{'movie':movie,'usercmts':usercmts,'Q':Q,'m':movies,'m_related':m_related,'i':screenshots,'kk':p})
 
@@ -47,7 +47,7 @@ def about_us(request):
 def contact(request):
     return render(request,'Contact.html')
 
-    
+
 def report(request):
     return render(request,'Report.html')
 
@@ -67,7 +67,7 @@ def sendfile(request,ids,Q):
             path = "media/"+str(p)
             fileopen = open(path,'rb')
             file = fileopen.read()
-            f=m._720p.name 
+            f=m._720p.name
         else:
             if Q=="_1080p":
                 p = m._1080p
@@ -75,8 +75,8 @@ def sendfile(request,ids,Q):
                 fileopen = open(path,'rb')
                 file = fileopen.read()
                 f=m._1080p.name
-           
-       
+
+
 
     response = HttpResponse(file, content_type='application/webm')
     response['Content-Disposition'] = 'attachment; filename='+f
@@ -110,4 +110,19 @@ def categories(request):
         movies.append(Movie_info.objects.get(id=i.movie_info.id))
 
     return render(request,'index.html',{'movie_info':movies})
-    
+
+
+
+
+def nextpage(request,no):
+    movies = Movie_info.objects.all()[(no-1)*4:(no)*4]
+    return render(request,'index.html',{'movie_info':movies})
+
+
+
+
+
+def movieplay(request,id):
+    m = Movie_file.objects.get(id=id)
+    path = m._480p
+    return render(request,'movieplay.html',{'path':path})

@@ -20,7 +20,7 @@
   </div>
        <div class="head">
       <span><a href="/">Home</a></span>
-      <span><a href="lates">Latest</a></span>
+      <span><a href="/lates">Latest</a></span>
       <span><a href="#">Web Series</a></span>
 
       <div class="cat">
@@ -39,39 +39,7 @@
 
 
 
-      <!-- <script>
-        selectHandler = {
-            clickCount : 0,
-            action : function(select)
-            {
-                selectHandler.clickCount++;
-                if(selectHandler.clickCount%2 == 0)
-                {
-                    selectedValue = select.options[select.selectedIndex].value;
-                    selectHandler.check(selectedValue);
-                }
-            },
-            blur : function() // needed for proper behaviour
-            {
-                if(selectHandler.clickCount%2 != 0)
-                {
-                    selectHandler.clickCount--;
-                }
-            },
-            check : function(value)
-            {
-                // you can customize this
-                alert('Changed! -> ' + value);
-            }
-        }
 
-    </script>
-    <select onclick="selectHandler.action(this)" onblur="selectHandler.blur()">
-        <option value="value-1"> 1 </option>
-        <option value="value-2"> 2 </option>
-        <option value="value-3"> 3 </option>
-        <option value="value-4"> 4 </option>
-    </select> -->
 
         <div class="search-btn">
               <form action="find_movie">
@@ -126,27 +94,17 @@
 
    <br>
 
-<!-- 
-   <div class="next-page">
-     <ul>
-     <li>
-    <a href="nextpage"> <div class="page-no">1</div></a></li>
-    <li><a href="nextpage"> <div class="page-no">2</div></a></li>
-    <li><a href="nextpage"> <div class="page-no">3</div></a></li>
-    <li><a href="nextpage"> <div class="page-no">4</div></a>
-  </li>
-</ul>
-  </div> -->
+
 
   </div>
 
   <div class="next-page">
     <ul>
     <li>
-   <a href="nextpage"> <div class="page-no">1</div></a></li>
-   <li><a href="nextpage"> <div class="page-no">2</div></a></li>
-   <li><a href="nextpage"> <div class="page-no">3</div></a></li>
-   <li><a href="nextpage"> <div class="page-no">4</div></a>
+   <a href="/nextpage/2"> <div class="page-no">2</div></a></li>
+   <li><a href="/nextpage/3"> <div class="page-no">3</div></a></li>
+   <li><a href="/nextpage/4"> <div class="page-no">4</div></a></li>
+   <li><a href="/nextpage/5"> <div class="page-no">5</div></a>
  </li>
 </ul>
  </div>
@@ -158,9 +116,9 @@
 <footer>
 <div class="footer">
    <span>Copyright &copy 2020</span><br>
-  <a href="about_us">About</a><br>
-  <a href="contact">Contact</a><br>
-  <a href="report">Report</a><br>
+  <a href="/about_us">About</a><br>
+  <a href="/contact">Contact</a><br>
+  <a href="/report">Report</a><br>
 
 </div>
 </footer>
