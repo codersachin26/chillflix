@@ -35,11 +35,15 @@
 <div class="containers" style="background-color: antiquewhite;">
 
     <h1>Report Broken Links Us</h1>
-<label for="">Your Name</label><input type="text"><br>
-<label for="">Your Email</label><input type="email"><br>
-<label for="">Movie Name</label><input type="text"><br>
-<label for="">Your massage</label><input type="text"><br>
-<input type="button" name="" id="btnn" value="Send">
+    <form  action="report" method="post">
+      {% csrf_token %}
+
+<label for="">Your Name</label><input type="text" name="user-name"><br>
+<label for="">Your Email</label><input type="email" name="email"><br>
+<label for="">Movie Name</label><input type="text" name="movie-name"><br>
+<label for="">Your massage</label><input type="text" name="msg"><br>
+<input type="submit" name="" id="btnn" value="Send">
+  </form>
 
 </div>
 

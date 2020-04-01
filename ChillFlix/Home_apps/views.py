@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Movie_info,Movies,Movie_file,M_screenshots,UserComments
+from .models import Movie_info,Movies,Movie_file,M_screenshots,UserComments,Reports
 from django.http import HttpResponse ,FileResponse
 
 
@@ -49,7 +49,16 @@ def contact(request):
 
 
 def report(request):
-    return render(request,'Report.html')
+    if request.method == 'POST':
+        report_data = Reports()
+        report_data.user_name = request.POST.get('user-name')
+        report_data.Email = request.POST.get('email')
+        report_data.movie_name = request.POST.get('movie-name')
+        report_data.massage = request.POST.get('msg')
+        report_data.save()
+        return HttpResponse('done')
+    else:
+        return render(request,'Report.html')
 
 
 

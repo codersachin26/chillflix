@@ -14,7 +14,7 @@ class Movie_info(models.Model):
     def __str__(self):
         return self.M_name
 
-    
+
 
 
 class Movies(models.Model):
@@ -40,7 +40,7 @@ class Movie_file(models.Model):
     def __str__(self):
         return self.movie_info.M_name+' files'
 
-    
+
 
 
 class M_screenshots(models.Model):
@@ -63,3 +63,23 @@ class UserComments(models.Model):
 
     def __str__(self):
         return self.U_name
+
+
+class Contact(models.Model):
+    user_name = models.CharField(max_length=25)
+    Email = models.EmailField()
+    Subject = models.CharField(max_length=50)
+    massage = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.user_name
+
+
+class Reports(models.Model):
+    user_name = models.CharField(max_length=25)
+    Email = models.EmailField()
+    movie_name = models.CharField(max_length=50)
+    massage = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.movie_name
