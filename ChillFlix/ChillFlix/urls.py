@@ -15,17 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from django.conf.urls import url
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('',include('Home_apps.urls')),
+
+    path('web/',include('Web_Series_app.urls')),
    # path('movie_info/(?P<id>[0-9]+)/$',include('Home_apps.urls')),
+
     path('movie_info/<int:id>',include('Home_apps.urls')),
     path('movie_info/<int:id>/sendfile/<int:ids>/<str:Q>/',include('Home_apps.urls')),
-  path('movie_info/<int:id>/usercmt',include('Home_apps.urls')),
+    path('movie_info/<int:id>/usercmt',include('Home_apps.urls')),
   
    path('nextpage/<int:no>',include('Home_apps.urls')),
+
 
 
 
@@ -34,7 +41,7 @@ urlpatterns = [
 
 from . import  settings
 from django.contrib.staticfiles.urls import static
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -9,6 +9,8 @@ def index(request):
     movie_info = Movie_info.objects.all()[:4]
     return render(request,'index.html',{'movie_info':movie_info})
 
+
+
 def movie_info(request,id):
     movie = Movies.objects.get(movie_info=id)
     movies = Movie_info.objects.get(id=id)

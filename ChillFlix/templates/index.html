@@ -21,7 +21,7 @@
        <div class="head">
       <span><a href="/">Home</a></span>
       <span><a href="/lates">Latest</a></span>
-      <span><a href="#">Web Series</a></span>
+      <span><a href="/web">Web Series</a></span>
 
       <div class="cat">
         <form action="categories">
@@ -62,7 +62,7 @@
 
 
 
-
+{% block movie-box %}
 
 
 <ul class="ul">
@@ -88,9 +88,9 @@
 
       {% endfor %}
 
-
-
    </ul>
+
+      {% endblock %}
 
    <br>
 

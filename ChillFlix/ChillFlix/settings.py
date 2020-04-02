@@ -32,12 +32,14 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'Home_apps.apps.HomeAppConfig',
+    'Web_Series_app.apps.WebSeriesAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
@@ -83,7 +85,16 @@ DATABASES = {
         'PORT':'3306',
         'HOST':'localhost',
 
+    },
+    'web_series': {
+        'ENGINE':'django.db.backends.mysql',
+        'NAME':'webseries',
+        'USER':'root',
+        'PASSWORD':'',
+        'PORT':'3306',
+        'HOST':'localhost',
     }
+
 }
 
 

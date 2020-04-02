@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>web_series</title>
+</head>
+<body>
+
+{% block movie-box %}
+
+<ul class="ul">
+
+
+  {% for i in movie_info %}
+        <li class="li">
+        	<a href="{% url 'movie_info' i.id %}">
+
+
+
+     <div class="movie-box">
+
+         <img src="/media/{{i.poster}}">
+       <span>{{i.series_name}}</span><br>
+       <span>{{i.released_date}}</span><br>
+        <span>{{i.languages}}</span><br>
+
+
+     </div>
+     </a>
+      </li>
+
+      {% endfor %}
+
+   </ul>
+
+
+{% endblock %}
+
+</body>
+</html>
