@@ -7,7 +7,7 @@ class Web_series(models.Model):
     series_name = models.CharField(max_length=20)
     languages = models.CharField(max_length=25)
     released_date = models.DateField()
-    poster = models.ImageField(upload_to='poster/')
+    series_poster = models.ImageField(upload_to='poster/')
 
 
     def __str__(self):
@@ -23,7 +23,8 @@ class Series_info(models.Model):
     categories = models.CharField(max_length=30)
     creator = models.CharField(max_length=20)
     format = models.CharField(max_length=10)
-    poster = models.ImageField(upload_to='poster/')
+    poster = models.ImageField(upload_to='poster_pic/',null=True)
+    
 
     def __str__(self):
         return self.web_series.series_name+' info'

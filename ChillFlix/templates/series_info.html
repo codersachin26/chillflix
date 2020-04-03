@@ -1,0 +1,135 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{%block style%}
+
+<link rel="stylesheet" href="{% static 'css\movie_css.css'%}">
+  {% endblock%}
+
+
+{% block body%}
+
+<div class="mcontainer">
+
+  <div class="left-container">
+
+    <h1>Related Movies</h1>
+
+
+
+  	<ul>
+
+    {% for m_relate in m_related %}
+
+        <li>
+        	<a href="{% url 'series_info' m_relate.id %}">
+
+
+
+     <div class="mmovie-box">
+      <img src="/media/{{m_relate.poster}}">
+
+
+       <span >{{m_relate.series_name}}</span><br>
+
+        <span>{{m_relate.languages}}</span><br>
+        <span>{{m_relate.languages}}</span><br>
+
+     </div>
+     </a>
+      </li>
+
+      {% endfor %}
+
+
+
+
+
+   </ul>
+
+
+
+
+
+
+  </div>
+
+
+
+
+  <div class="right-container">
+
+    <img src="/media/{{seriesinfo.poster}}" alt="img">
+
+
+    <div class="movie-info">
+
+
+    <h1>{{series.series_name}}</h1><h6>{{seriesinfo.categories}}</h6>
+    <h3>Audio: {{series.languages}}</h3>
+    <h3>Creator: {{seriesinfo.creator}}</h3>
+
+      <h1>Storyline</h1>
+      <span >{{seriesinfo.storyline}}</span>
+       <br>
+       <div></div>
+       <h1>Seasons</h1>
+       {% for i in seasons %}
+             
+      <a href="{% url 'season' series.id i %}"> <h3 style="color: red;">Season {{i}}</h3><br> </a>
+
+       {% endfor %}
+
+
+    </div>
+
+  </div>
+
+
+
+
+  <div class="cmt">
+
+  <h1>COMMENTS</h1><br>
+  <form action="usercmt" method="POST">
+    {% csrf_token %}
+  <span class="msg">Say something?</span><textarea placeholder="what u want 2 say" name="usermsg"></textarea><br>
+  <input type="text" placeholder="UserName" name="username"><br>
+  <input  type="hidden" name="id" value="{{movie.id}}">
+  <input type="email" placeholder="Email" name="email"><br>
+  <button type="submit">Add Comment</button>
+</form>
+
+  <hr>
+  <hr>
+
+
+ {% for i in usercmts%}
+
+  <div class="usercmt">
+
+    <h1>{{i.U_name}}</h1>
+    <h7>{{i.cmt_date}}</h7>
+    <div class="text">
+      <span>{{i.U_msg}}</span>
+    </div>
+
+  </div>
+
+  {% endfor %}
+
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+{%endblock%}

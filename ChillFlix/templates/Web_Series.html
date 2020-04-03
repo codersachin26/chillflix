@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% extends 'index.html' %}
-{% load static %
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,13 +15,13 @@
 
   {% for i in movie_info %}
         <li class="li">
-        	<a href="{% url 'movie_info' i.id %}">
+        	<a href="{% url 'series_info' i.id %}">
 
 
 
      <div class="movie-box">
 
-         <img src="/media/{{i.poster}}">
+         <img src="/media/{{i.series_poster}}">
        <span>{{i.series_name}}</span><br>
        <span>{{i.released_date}}</span><br>
         <span>{{i.languages}}</span><br>

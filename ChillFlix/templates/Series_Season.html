@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+   <div class="left-container">
+
+       <div class="s-img"></div>
+
+       <div class="series-info">
+
+
+        <h1>{{series.series_name}}</h1>
+
+       <label>Total Episodes: </label> <h3>{{season.total_episodes}}</h3>
+        <label>Audio: </label><h3>Audio: {{series.audio}}</h3>
+        <label>Quality: </label><h3>Quality: {{season.quality}}</h3>
+        <label>Creator: </label><h3>Creator: {{seriesinfo.creator}}</h3>
+        <label>Director: </label><h3>Creator: {{seriesinfo.director}}</h3>
+        <label>Actors: </label><h3>{{seriesinfo.actors}}</h3>
+
+    
+          <h1>Storyline</h1>
+          <span >{{movie.M_story}}</span>
+           <br>
+           <h1>Screenshots</h1><br>
+    
+           <img src="/media/{{i.screenshot1}}" alt=""><br>
+           <img src="/media/{{i.screenshot2}}" alt=""><br>
+           <img src="/media/{{i.screenshot3}}" alt=""><br>
+    
+    
+    
+        </div>
+
+   </div>
+
+
+    
+</body>
+</html>
