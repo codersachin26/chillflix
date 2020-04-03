@@ -22,6 +22,8 @@ class Series_info(models.Model):
     storyline = models.CharField(max_length=300)
     categories = models.CharField(max_length=30)
     creator = models.CharField(max_length=20)
+    director = models.CharField(max_length=25,null=True)
+    actors = models.CharField(max_length=100,null=True)
     format = models.CharField(max_length=10)
     poster = models.ImageField(upload_to='poster_pic/',null=True)
     
@@ -33,6 +35,7 @@ class Series_info(models.Model):
 class Seasons(models.Model):
     web_series = models.ForeignKey('Web_series',on_delete=models.CASCADE)
     season_no = models.IntegerField()
+    quality = models.CharField(max_length=25,null=True)
     total_episodes = models.IntegerField()
     episodes_name = models.CharField(max_length=300)
 

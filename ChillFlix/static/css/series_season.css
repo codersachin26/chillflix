@@ -1,0 +1,63 @@
+
+
+.left-container{
+    width: 65%;
+    height: 1200px;
+    background: rgb(108, 215, 230);
+    margin-bottom: 200px;
+
+}
+
+.s-img img{
+    width: 95%;
+    height: 420px;
+    margin-left: 20px;
+}
+
+.series-info{
+    width: 95%;
+    height: 350px;
+    background: rgb(238, 147, 208);
+    margin-left: 20px;
+    border: 2px solid grey;
+}
+
+ h1{
+    margin: 0;
+}
+
+label{
+    margin-top: 20px;
+    padding: 10px;
+    
+
+}
+
+
+
+.episode{
+    width: 95%;
+    height: 150px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 100px;
+    background: rgba(164, 202, 149, 0.719);
+}
+
+.r-container{
+    width: 32%;
+    height: 700px;
+    background: red;
+    margin-bottom: 200px;
+    margin-left: 870px;
+    margin-top: -1400px;
+    
+}
+
+.next-season{
+    width: 95%;
+    height: 200px;
+    margin-left: 8px;
+    margin-top: 30px;
+    border: 2px solid whitesmoke;
+}

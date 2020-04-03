@@ -1,47 +1,56 @@
-<!DOCTYPE html>
+
 {% extends 'index.html' %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
+
+    {%block style%}
+
+<link rel="stylesheet" href="{% static 'css/series_season.css'%}">
+  {% endblock%}
+
+  {% block body %}
 
    <div class="left-container">
 
-       <div class="s-img"></div>
+       <div class="s-img">
+
+        <img src="\media\poster_pic\big_poster.jpg" alt="">
+       </div>
 
        <div class="series-info">
 
+        
+        <h1>MR. Robot{{series.series_name}}</h1>
 
-        <h1>{{series.series_name}}</h1>
-
-       <label>Total Episodes: </label> <h3>{{season.total_episodes}}</h3>
-        <label>Audio: </label><h3>Audio: {{series.audio}}</h3>
-        <label>Quality: </label><h3>Quality: {{season.quality}}</h3>
-        <label>Creator: </label><h3>Creator: {{seriesinfo.creator}}</h3>
-        <label>Director: </label><h3>Creator: {{seriesinfo.director}}</h3>
-        <label>Actors: </label><h3>{{seriesinfo.actors}}</h3>
+       <label>Total Episodes: </label> <span>{{season.total_episodes}}</span><br>
+        <label>Audio: </label><span>Audio: {{series.audio}}</span><br>
+        <label>Quality: </label><span>Quality: {{season.quality}}</span><br>
+        <label>Creator: </label><span>Creator: {{seriesinfo.creator}}</span><br>
+        <label>Director: </label><span>Creator: {{seriesinfo.director}}</span><br>
+        <label>Actors: </label><span>{{seriesinfo.actors}}</span><br>
 
     
-          <h1>Storyline</h1>
-          <span >{{movie.M_story}}</span>
-           <br>
-           <h1>Screenshots</h1><br>
-    
-           <img src="/media/{{i.screenshot1}}" alt=""><br>
-           <img src="/media/{{i.screenshot2}}" alt=""><br>
-           <img src="/media/{{i.screenshot3}}" alt=""><br>
-    
-    
-    
+        <h2>StoryLine</h2>
+        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, dignissimos qui atque est totam voluptatibus ratione earum consequatur mollitia. Illo at voluptatibus rem explicabo iusto consequatur itaque eligendi reprehenderit fugit.</span>
+        </div>
+        <div class="episode">
+            <label>Episode No: </label><span>1</span><br>
+            <label>Episode Name:</label><span>Error</span><br>
+            <label>Download</label><span>HD</span><br>
         </div>
 
    </div>
 
+   <div class="r-container">
+       <div class="next-season">
+
+       </div>
+
+       <div class="next-season">
+           
+    </div>
+   </div>
+
 
     
-</body>
-</html>
+{% endblock %}
