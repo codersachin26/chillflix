@@ -56,14 +56,25 @@ label{
     height: 800px;
     background: red;
     float: right;
+    overflow-y: scroll;
    
     
 }
 
+.next-season img{
+    width: 98%;
+    border: 2px solid lavender;
+    height: 220px;
+    margin-left: 2px;
+    
+
+}
+
 .next-season{
-    width: 95%;
-    height: 200px;
-    margin-left: 8px;
+    width: 90%;
+    height: 250px;
+    margin-left: 12px;
     margin-top: 30px;
     border: 2px solid whitesmoke;
+    
 }

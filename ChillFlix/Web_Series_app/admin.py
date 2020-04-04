@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Web_series,Series_info,Seasons,Episode,Episode_file
+from .models import Web_series,Series_info,Seasons,Episode,Episode_file,Season_pics
 
 
 
@@ -37,14 +37,10 @@ class MultiDBModelAdmin(admin.ModelAdmin):
 
 
 
-# class BookInline(MultiDBTabularInline):
-#     model = Series_info
-
-# class PublisherAdmin(MultiDBModelAdmin):
-#     inlines = [BookInline]
 
 admin.site.register(Web_series, MultiDBModelAdmin)
 admin.site.register(Series_info, MultiDBModelAdmin)
 admin.site.register(Seasons, MultiDBModelAdmin)
 admin.site.register(Episode, MultiDBModelAdmin)
 admin.site.register(Episode_file, MultiDBModelAdmin)
+admin.site.register(Season_pics, MultiDBModelAdmin)

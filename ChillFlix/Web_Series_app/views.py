@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Web_series,Series_info,Seasons,Episode,Episode_file
+from .models import Web_series,Series_info,Seasons,Episode,Episode_file,Season_pics
 from django.http import HttpResponse
 
 # Create your views here.
@@ -28,8 +28,9 @@ def season(request,id,s_no):
     series = Web_series.objects.using('web_series').get(id=id)
     s_id =season.id
     episodes = Episode.objects.using('web_series').filter(season=s_id)
+    s_pics = Season_pics.objects.using('web_series').get(season=s_id)
     
-    return render(request,'Series_Season.html',{'series':series,'q':q,'seriesinfo':seriesInfo,'season':season,'e':episodes})
+    return render(request,'Series_Season.html',{'series':series,'q':q,'seriesinfo':seriesInfo,'season':season,'e':episodes,'s_pics':s_pics})
 
 
 

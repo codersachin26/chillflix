@@ -69,5 +69,5 @@ class Season_pics(models.Model):
     season = models.ForeignKey('Seasons',on_delete=models.CASCADE)
     s_poster = models.ImageField(upload_to='seasons_poster/')
     s_screenshot1 = models.ImageField(upload_to='screenshot1/')
-    s_screenshot1 = models.ImageField(upload_to='screenshot2/')
-    s_screenshot1 = models.ImageField(upload_to='screenshot3/')
+    s_screenshot2 = models.ImageField(upload_to='screenshot2/',null=True)
+    s_screenshot3 = models.ImageField(upload_to='screenshot3/',null=True)
