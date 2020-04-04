@@ -62,3 +62,12 @@ class Episode_file(models.Model):
 
     def __str__(self):
         return self.episode.e_no+self.episode.episode_name
+
+
+
+class Season_pics(models.Model):
+    season = models.ForeignKey('Seasons',on_delete=models.CASCADE)
+    s_poster = models.ImageField(upload_to='seasons_poster/')
+    s_screenshot1 = models.ImageField(upload_to='screenshot1/')
+    s_screenshot1 = models.ImageField(upload_to='screenshot2/')
+    s_screenshot1 = models.ImageField(upload_to='screenshot3/')

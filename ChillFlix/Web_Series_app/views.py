@@ -20,9 +20,13 @@ def series_info(request,id):
 
 
 def season(request,id,s_no):
-    season = Seasons.objects.using('web_series').filter(web_series=id,season_no=s_no)
+    season = Seasons.objects.using('web_series').get(season_no=s_no)
+    
     seriesInfo = Series_info.objects.using('web_series').get(web_series = id)
     series = Web_series.objects.using('web_series').get(id=id)
-    return render(request,'Series_Season.html')    
+    s_id =season.id
+    episodes = Episode.objects.using('web_series').filter(season=s_id)
+    
+    return render(request,'Series_Season.html',{'series':series,'seriesinfo':seriesInfo,'season':season,'e':episodes})    
 
    

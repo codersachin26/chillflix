@@ -20,24 +20,32 @@
        <div class="series-info">
 
         
-        <h1>MR. Robot{{series.series_name}}</h1>
+        <h1>{{series.series_name}}</h1>
 
        <label>Total Episodes: </label> <span>{{season.total_episodes}}</span><br>
-        <label>Audio: </label><span>Audio: {{series.audio}}</span><br>
-        <label>Quality: </label><span>Quality: {{season.quality}}</span><br>
-        <label>Creator: </label><span>Creator: {{seriesinfo.creator}}</span><br>
-        <label>Director: </label><span>Creator: {{seriesinfo.director}}</span><br>
+        <label>Audio: </label><span>{{series.languages}}</span><br>
+        <label>Quality: </label><span>{{season.quality}}</span><br>
+        <label>Creator: </label><span>{{seriesinfo.creator}}</span><br>
+        <label>Director: </label><span>{{seriesinfo.director}}</span><br>
         <label>Actors: </label><span>{{seriesinfo.actors}}</span><br>
 
     
         <h2>StoryLine</h2>
-        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde, dignissimos qui atque est totam voluptatibus ratione earum consequatur mollitia. Illo at voluptatibus rem explicabo iusto consequatur itaque eligendi reprehenderit fugit.</span>
+        <span>{{seriesinfo.storyline}}</span>
         </div>
+       
+      
+
+        {% for episodes in e %}
         <div class="episode">
-            <label>Episode No: </label><span>1</span><br>
-            <label>Episode Name:</label><span>Error</span><br>
+            <label>Episode No: </label><span>{{episodes.e_no}}</span><br>
+            <label>Episode Name:</label><span>{{episodes.episode_name}}</span><br>
+                <label>Episode Name:</label><span>{{episodes.e_duration}}</span><br>
             <label>Download</label><span>HD</span><br>
         </div>
+
+        {%endfor %}
+        
 
    </div>
 

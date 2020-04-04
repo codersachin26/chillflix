@@ -2,9 +2,9 @@
 
 .left-container{
     width: 65%;
-    height: 1200px;
+    height: auto;
     background: rgb(108, 215, 230);
-    margin-bottom: 200px;
+    margin-bottom: 400px;
 
 }
 
@@ -40,13 +40,13 @@ label{
     height: 150px;
     margin-top: 10px;
     margin-left: 20px;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     background: rgba(164, 202, 149, 0.719);
 }
 
 .r-container{
     width: 32%;
-    height: 700px;
+    height: 800px;
     background: red;
     margin-bottom: 200px;
     margin-left: 870px;
