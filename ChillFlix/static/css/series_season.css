@@ -1,7 +1,14 @@
 
+.main-c{
+   width: 100%;
+   height: auto;
+   overflow: hidden;
+}
+
 
 .left-container{
     width: 65%;
+    float: left;
     height: auto;
     background: rgb(108, 215, 230);
     margin-bottom: 400px;
@@ -48,9 +55,8 @@ label{
     width: 32%;
     height: 800px;
     background: red;
-    margin-bottom: 200px;
-    margin-left: 870px;
-    margin-top: -1400px;
+    float: right;
+   
     
 }
 

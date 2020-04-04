@@ -10,6 +10,8 @@
 
   {% block body %}
 
+ <div class="main-c">
+
    <div class="left-container">
 
        <div class="s-img">
@@ -21,7 +23,7 @@
 
         
         <h1>{{series.series_name}}</h1>
-
+        <label>Season: </label><span>{{season.season_no}}</span><br>
        <label>Total Episodes: </label> <span>{{season.total_episodes}}</span><br>
         <label>Audio: </label><span>{{series.languages}}</span><br>
         <label>Quality: </label><span>{{season.quality}}</span><br>
@@ -41,13 +43,18 @@
             <label>Episode No: </label><span>{{episodes.e_no}}</span><br>
             <label>Episode Name:</label><span>{{episodes.episode_name}}</span><br>
                 <label>Episode Name:</label><span>{{episodes.e_duration}}</span><br>
-            <label>Download</label><span>HD</span><br>
+            <label>Download</label><span>
+                {% for i in q %}
+                <a href="{% url 'download_episode' i episodes.id  %}">{{i}}</a></span>
+                {%endfor%}
+                <br>
         </div>
 
         {%endfor %}
         
 
    </div>
+
 
    <div class="r-container">
        <div class="next-season">
@@ -56,9 +63,9 @@
 
        <div class="next-season">
            
-    </div>
+        </div>
    </div>
 
-
+</div>
     
 {% endblock %}
