@@ -58,45 +58,21 @@
 
    <div class="r-container">
 
+     
+
+      {% for i in next_seasons%}
+
      <a href="#">
-       <div class="next-season">
-
-        <img src="\media\{{s_pics.s_poster}}" alt="season-img">
-         <label>Season No </label>{{season_no}}
-
-       </div>
-
-    </a>
-
-    <a href="#">
         <div class="next-season">
  
-         <img src="\media\{{s_pics.s_poster}}" alt="season-img">
-          <label>Season No </label>{{season_no}}
+         <img src="\media\{{i.s_poster}}" alt="season-img">
+          <label>Season No </label>{{i.all_seasons.season_no}}
  
         </div>
  
      </a>
 
-     <a href="#">
-        <div class="next-season">
- 
-         <img src="\media\{{s_pics.s_poster}}" alt="season-img">
-          <label>Season No </label>{{season_no}}
- 
-        </div>
- 
-     </a>
-
-     <a href="#">
-        <div class="next-season">
- 
-         <img src="\media\{{s_pics.s_poster}}" alt="season-img">
-          <label>Season No </label>{{season_no}}
- 
-        </div>
- 
-     </a>
+     {%endfor%}
 
       
    </div>
