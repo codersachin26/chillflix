@@ -53,10 +53,11 @@ label{
 
 .r-container{
     width: 32%;
-    height: 800px;
+    height: auto;
     background: red;
     float: right;
-    overflow-y: scroll;
+    margin-bottom: 10px;
+    
    
     
 }

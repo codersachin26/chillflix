@@ -60,17 +60,22 @@
 
      
 
-      {% for i in next_seasons%}
+      {% for i,j in next_seasons%}
 
-     <a href="#">
+   
+     
+     <a href="{% url 'season' series.id j %}">
         <div class="next-season">
  
          <img src="\media\{{i.s_poster}}" alt="season-img">
-          <label>Season No </label>{{i.all_seasons.season_no}}
+          <label>Season No </label>{{j}}
  
         </div>
+
+      
  
      </a>
+     
 
      {%endfor%}
 

@@ -15,9 +15,11 @@ def web(request):
 def series_info(request,id):
     seriesInfo = Series_info.objects.using('web_series').get(web_series = id)
     series = Web_series.objects.using('web_series').get(id=id)
-    Seasons =[1,2,3,4,5,6]
+    all_seasons =[]
+    for i in range(1,seriesInfo.seasons+1):
+            all_seasons.append(i)
     print("poster ",seriesInfo.categories)
-    return render(request,'series_info.html',{'seriesinfo':seriesInfo,'series':series,'seasons':Seasons})
+    return render(request,'series_info.html',{'seriesinfo':seriesInfo,'series':series,'seasons':all_seasons})
 
 
 def season(request,id,s_no):
@@ -28,11 +30,19 @@ def season(request,id,s_no):
     series = Web_series.objects.using('web_series').get(id=id)
     s_id =season.id
     episodes = Episode.objects.using('web_series').filter(season=s_id)
+    s_poster = Season_pics.objects.using('web_series').get(season=s_id)
     s_pics = Season_pics.objects.using('web_series').filter(web_series=id)
-    all_seasons = seriesInfo.seasons
-    next_seasons = [s_pics,all_seasons]
+    s_picss =[]
+    for i in s_pics:
+        if s_poster!=i.s_poster:
+            s_picss.append(i)
+    all_seasons =[]
+    for i in range(1,seriesInfo.seasons+1):
+        if i!=s_no:
+            all_seasons.append(i)
+    next_seasons = zip(s_picss,all_seasons)
 
-    return render(request,'Series_Season.html',{'series':series,'q':q,'seriesinfo':seriesInfo,'season':season,'e':episodes,'next_seasons':s_pics})
+    return render(request,'Series_Season.html',{'next_seasons':next_seasons,'series':series,'q':q,'seriesinfo':seriesInfo,'season':season,'e':episodes,'s_pics':s_poster})
 
 
 
