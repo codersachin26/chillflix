@@ -25,18 +25,6 @@ urlpatterns = [
     path('',include('Home_apps.urls')),
 
     path('web/',include('Web_Series_app.urls')),
-    path('web/series-info/<int:id>',include('Web_Series_app.urls')),
-    path('web/series-info/season/<int:id>/<int:s_no>',include('Web_Series_app.urls')),
-    path('web/download/<str:Q>/<int:id>',include('Web_Series_app.urls')),
-   # path('movie_info/(?P<id>[0-9]+)/$',include('Home_apps.urls')),
-
-    path('movie_info/<int:id>',include('Home_apps.urls')),
-    path('movie_info/<int:id>/sendfile/<int:ids>/<str:Q>/',include('Home_apps.urls')),
-    path('movie_info/<int:id>/usercmt',include('Home_apps.urls')),
-  
-   path('nextpage/<int:no>',include('Home_apps.urls')),
-
-
 
 
 

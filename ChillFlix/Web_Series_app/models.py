@@ -57,7 +57,7 @@ class Episode(models.Model):
 class Episode_file(models.Model):
     episode = models.ForeignKey('Episode',on_delete=models.CASCADE)
     _480p = models.FileField(upload_to='_480p/',default='none')
-    _720p = models.FileField(upload_to='_720px/',default='none')
+    _720p = models.FileField(upload_to='_720p/',default='none')
     _1080p = models.FileField(upload_to='_1080p/',default='none')
 
     def __str__(self):

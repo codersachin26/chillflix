@@ -5,6 +5,8 @@
 
     {%block style%}
 
+  
+
 <link rel="stylesheet" href="{% static 'css/series_season.css'%}">
   {% endblock%}
 
@@ -48,6 +50,12 @@
                 <a href="{% url 'download_episode' i episodes.id  %}">{{i}}</a></span>
                 {%endfor%}
                 <br>
+
+                <label>Watch</label><span>
+                  {% for i in q %}
+                  <a href="{% url 'play_series' i episodes.id  %}">{{i}}</a></span>
+                  {%endfor%}
+                  <br>
         </div>
 
         {%endfor %}

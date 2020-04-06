@@ -15,11 +15,20 @@ def web(request):
 def series_info(request,id):
     seriesInfo = Series_info.objects.using('web_series').get(web_series = id)
     series = Web_series.objects.using('web_series').get(id=id)
-    all_seasons =[]
+    cat = seriesInfo.categories
+    series_cat = Series_info.objects.using('web_series').filter(categories = cat)
+    related =[]
+    
+    for i in series_cat:
+        ids = i.web_series
+        if id!=ids.id:
+            related.append(Web_series.objects.using('web_series').get(id = ids.id))
+
+    all_seasons=[]
     for i in range(1,seriesInfo.seasons+1):
             all_seasons.append(i)
-    print("poster ",seriesInfo.categories)
-    return render(request,'series_info.html',{'seriesinfo':seriesInfo,'series':series,'seasons':all_seasons})
+
+    return render(request,'series_info.html',{'m_related':related,'seriesinfo':seriesInfo,'series':series,'seasons':all_seasons})
 
 
 def season(request,id,s_no):
@@ -30,6 +39,8 @@ def season(request,id,s_no):
     series = Web_series.objects.using('web_series').get(id=id)
     s_id =season.id
     episodes = Episode.objects.using('web_series').filter(season=s_id)
+    for i in episodes:
+        print(i.id)
     s_poster = Season_pics.objects.using('web_series').get(season=s_id)
     s_pics = Season_pics.objects.using('web_series').filter(web_series=id)
     s_picss =[]
@@ -80,4 +91,19 @@ def download_episode(request,Q,id):
     response['Content-Disposition'] = 'attachment; filename='+f
     return response   
 
-   
+
+def play_series(request,Q,id):
+    episode = Episode_file.objects.using('web_series').get(episode=id)
+    if Q=="480p":
+        path = episode._480p
+     
+    else:
+        if Q=="720p":
+            path = episode._720p
+           
+        else:
+            if Q=="1080p":
+                path = episode._1080p
+
+    return render(request,'play_series.html',{'path':path})
+ 
