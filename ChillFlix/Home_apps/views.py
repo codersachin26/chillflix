@@ -1,13 +1,20 @@
 from django.shortcuts import render,redirect
 from .models import Movie_info,Movies,Movie_file,M_screenshots,UserComments,Reports
 from django.http import HttpResponse ,FileResponse
+from Web_Series_app.models import Web_series
+from math import ceil
 
 
 
 
 def index(request):
     movie_info = Movie_info.objects.all()[:4]
-    return render(request,'index.html',{'movie_info':movie_info})
+    count = Movie_info.objects.all().count()
+    count = ceil(count/4)
+    counts =[]
+    for i in range(1,count+1):
+        counts.append(i)
+    return render(request,'index.html',{'movie_info':movie_info,'count':counts,'active':1})
 
 
 
@@ -38,8 +45,18 @@ def lates(request):
 
 def find_movie(request):
     movie_name = request.GET.get('search')
-    movie = Movie_info.objects.get(M_name=movie_name)
-    return render(request,'searchmovie.html',{'i':movie})
+    #movie = Movie_info.objects.get(M_name=movie_name)
+    try:
+        movie = Movie_info.objects.get(M_name=movie_name)
+        return render(request,'searchmovie.html',{'i':movie})
+
+    except Movie_info.DoesNotExist:
+        try:
+            webseries = Web_series.objects.using('web_series').get(series_name=movie_name)
+            return render(request,'SearchSeries.html',{'i':webseries})
+
+        except Web_series.DoesNotExist:
+            return HttpResponse('Not Exist')
 
 
 def about_us(request):
@@ -127,7 +144,12 @@ def categories(request):
 
 def nextpage(request,no):
     movies = Movie_info.objects.all()[(no-1)*4:(no)*4]
-    return render(request,'index.html',{'movie_info':movies})
+    count = Movie_info.objects.all().count()
+    count = ceil(count/4)
+    counts =[]
+    for i in range(1,count+1):
+        counts.append(i)
+    return render(request,'index.html',{'movie_info':movies,'count':counts,'active':no})
 
 
 

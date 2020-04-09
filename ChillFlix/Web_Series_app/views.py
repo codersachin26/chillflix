@@ -1,12 +1,18 @@
 from django.shortcuts import render
 from .models import Web_series,Series_info,Seasons,Episode,Episode_file,Season_pics
 from django.http import HttpResponse
+from math import ceil
 
 # Create your views here.
 
 def web(request):
-    webseries = Web_series.objects.using('web_series').all()
-    return render(request,'Web_Series.html',{'movie_info':webseries})
+    webseries = Web_series.objects.using('web_series').all()[:2]
+    count = Web_series.objects.using('web_series').all().count()
+    count = ceil(count/2)
+    counts =[]
+    for i in range(1,count+1):
+        counts.append(i)
+    return render(request,'Web_Series.html',{'movie_info':webseries,'count':counts,'active':1})
 
 
 
@@ -106,4 +112,17 @@ def play_series(request,Q,id):
                 path = episode._1080p
 
     return render(request,'play_series.html',{'path':path})
+
+
+
+
+
+def nextpage(request,no):
+    web_series = Web_series.objects.using('web_series').all()[(no-1)*2:(no)*2]
+    count = Web_series.objects.using('web_series').all().count()
+    count = ceil(count/2)
+    counts =[]
+    for i in range(1,count+1):
+        counts.append(i)
+    return render(request,'Web_Series.html',{'movie_info':web_series,'count':counts,'active':no})
  

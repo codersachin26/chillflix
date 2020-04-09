@@ -1,0 +1,33 @@
+{%extends 'index.html' %}
+
+{%block body%}
+
+
+
+
+
+
+<ul>
+
+
+ 
+    <li>
+        <a href="{% url 'movie_info' i.id %}">
+        
+      
+ <div class="movie-box">
+
+     <img src="/media/{{i.series_poster}}">
+   <span>{{i.series_name}}</span><br>
+   <span>{{i.released_date}}</span><br>
+    <span>{{i.languages}}</span><br>
+   
+
+ </div>
+ </a>
+  </li>
+
+ 
+</ul>
+
+{%endblock%}

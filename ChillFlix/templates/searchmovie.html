@@ -17,8 +17,8 @@
   </div>
        <div class="head">
       <span><a href="/">Home</a></span>
-      <span><a href="lates">Latest</a></span>
-      <span><a href="Web_Series">Web Series</a></span>
+      <span><a href="/lates">Latest</a></span>
+      <span><a href="/web">Web Series</a></span>
       <span><a href="#">All Categories</a></span>
         <div class="search-btn">
               <form action="find_movie">
@@ -45,8 +45,7 @@
         <li>
         	<a href="{% url 'movie_info' i.id %}">
             
-            
-
+          
      <div class="movie-box">
 
          <img src="/media/{{i.M_img}}">
@@ -60,9 +59,6 @@
       </li>
 
      
-     
-
-
    </ul>
   </div>
 

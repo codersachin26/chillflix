@@ -38,5 +38,23 @@
 
 {% endblock %}
 
+
+
+{%block next-page%}
+<ul>
+  {% for i in count%}
+
+ {%ifequal i active %}
+ <li><a href="/web/nextpage/{{i}}"> <div style="background-color: aqua;" class="page-no">{{i}}</div></a></li>
+{% else %}
+<li><a href="/web/nextpage/{{i}}"> <div class="page-no">{{i}}</div></a></li>
+
+{% endifequal %}
+
+
+{%endfor%}
+
+{%endblock%}
+
 </body>
 </html>

@@ -42,7 +42,7 @@
 
 
         <div class="search-btn">
-              <form action="find_movie">
+              <form action="{% url 'find-movie' %}">
         <input type="text" name="search" value="" placeholder="Search here">
           <button type="submit" name="button">Search</button>
              </form>
@@ -100,13 +100,27 @@
   </div>
 
   <div class="next-page">
+    {%block next-page%}
     <ul>
+      {% for i in count%}
     <li>
-   <a href="/nextpage/2"> <div class="page-no">2</div></a></li>
-   <li><a href="/nextpage/3"> <div class="page-no">3</div></a></li>
+
+   <!-- <a href="/nextpage/{{i}}"> <div class="page-no">{{i}}</div></a></li> -->
+
+   {%ifequal i active %}
+   <a href="/nextpage/{{i}}"> <div style="background-color: aqua;" class="page-no">{{i}}</div></a></li>
+   {% else %}
+   <li><a href="/nextpage/{{i}}"> <div class="page-no">{{i}}</div></a></li>
+   
+   {% endifequal %}
+
+   {%endfor%}
+
+   {%endblock%}
+   <!-- <li><a href="/nextpage/3"> <div class="page-no">3</div></a></li>
    <li><a href="/nextpage/4"> <div class="page-no">4</div></a></li>
-   <li><a href="/nextpage/5"> <div class="page-no">5</div></a>
- </li>
+   <li><a href="/nextpage/5"> <div class="page-no">5</div></a> -->
+
 </ul>
 {%endblock%}
  </div>

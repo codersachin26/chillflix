@@ -7,7 +7,7 @@ urlpatterns =[
     path('categories',views.categories,name='categories'),
     path('movie_info/<int:id>',views.movie_info,name='movie_info'),
     path('lates/',views.lates,name='lates'),
-    path('web', include('Web_Series_app.urls')),
+    path('find_movie',views.find_movie,name='find-movie'),
     path('movie_info/sendfile/<int:ids>/<str:Q>/',views.sendfile,name='sendfile'),
     path('movie_info/usercmt',views.usercmt,name='usercmt'),
     path('about_us',views.about_us,name='about_us'),
