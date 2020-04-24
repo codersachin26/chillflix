@@ -92,22 +92,24 @@
   <div class="cmt">
 
   <h1>COMMENTS</h1><br>
-  <form action="usercmt" method="POST">
-    {% csrf_token %}
-  <span class="msg">Say something?</span><textarea placeholder="what u want 2 say" name="usermsg"></textarea><br>
-  <input type="text" placeholder="UserName" name="username"><br>
-  <input  type="hidden" name="id" value="{{movie.id}}">
-  <input type="email" placeholder="Email" name="email"><br>
-  <button type="submit">Add Comment</button>
+
+    <form method="post" id="cmtform">
+      {% csrf_token %}
+  <span class="msg">Say something?</span><textarea placeholder="what u want 2 say" name="usermsg" id="usermsg"></textarea><br>
+  <input type="text" placeholder="UserName" name="username" id="username"><br>
+  <input  type="hidden" id="s_id" name="id" value="{{seriesinfo.id}}">
+  <input type="email" placeholder="Email" name="email" id="email"><br>
+  <button id="cmt1" type="submit">Add Comment</button>
 </form>
 
   <hr>
   <hr>
 
-
+  <h1 id="usercomments">User Comment</h1>
+    <div id="cmtdiv">
  {% for i in usercmts%}
 
-  <div class="usercmt">
+  <div class="usercmt" id="cmts">
 
     <h1>{{i.U_name}}</h1>
     <h7>{{i.cmt_date}}</h7>
@@ -119,11 +121,73 @@
 
   {% endfor %}
 
+</div>
+
 
 
   </div>
 
 </div>
+
+
+<script>
+
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+
+document.getElementById('cmtform').addEventListener('submit',
+ function (e){
+   e.preventDefault()
+   var xhr = new XMLHttpRequest()
+   var username = document.getElementById('username').value
+   var email = document.getElementById('email').value
+   var id = document.getElementById('s_id').value
+   var usermsg = document.getElementById('usermsg').value
+   var time = new Date()
+   
+   
+   xhr.open("POST","{% url 'usercmt' %}",true)
+   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+   xhr.setRequestHeader("X-CSRFToken", csrftoken)
+   xhr.send(`username=${username}&email=${email}&id=${id}&usermsg=${usermsg}`)
+   xhr.onreadystatechange = function(){
+     if(this.readyState==4 && this.status==200)
+     {
+      var tNew = document.createElement('div');
+         tNew.innerHTML = ` <div class="usercmt" id="cmts"><h1>${username}</h1>
+    <h7>${time}</h7>
+    <div class="text">
+      <span>${usermsg}</span>
+    </div>`
+            
+
+            
+            var cmtdiv = document.getElementById('cmtdiv');
+            cmtdiv.insertBefore(tNew, cmtdiv.firstChild);
+      
+     
+   }
+ }
+
+ }
+)
+
+
+</script>
 
 
 

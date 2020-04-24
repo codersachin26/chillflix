@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from .models import Web_series,Series_info,Seasons,Episode,Episode_file,Season_pics
-from django.http import HttpResponse
+from django.shortcuts import render,redirect
+from .models import Web_series,Series_info,Seasons,Episode,Episode_file,Season_pics,UserComments
+from django.http import HttpResponse,JsonResponse
 from math import ceil
 
 # Create your views here.
@@ -22,6 +22,7 @@ def series_info(request,id):
     seriesInfo = Series_info.objects.using('web_series').get(web_series = id)
     series = Web_series.objects.using('web_series').get(id=id)
     cat = seriesInfo.categories
+    usercmts = UserComments.objects.using('web_series').filter(Series_info_id=id).order_by('-cmt_date')[:4]
     series_cat = Series_info.objects.using('web_series').filter(categories = cat)
     related =[]
     
@@ -34,7 +35,7 @@ def series_info(request,id):
     for i in range(1,seriesInfo.seasons+1):
             all_seasons.append(i)
 
-    return render(request,'series_info.html',{'m_related':related,'seriesinfo':seriesInfo,'series':series,'seasons':all_seasons})
+    return render(request,'series_info.html',{'m_related':related,'usercmts':usercmts,'seriesinfo':seriesInfo,'series':series,'seasons':all_seasons})
 
 
 def season(request,id,s_no):
@@ -126,3 +127,20 @@ def nextpage(request,no):
         counts.append(i)
     return render(request,'Web_Series.html',{'movie_info':web_series,'count':counts,'active':no})
  
+
+
+def usercmt(request):
+    print('enter')
+    msg = request.POST.get('usermsg')
+    Email = request.POST.get('email')
+    username = request.POST.get('username')
+    id = request.POST.get('id')
+    userdata = UserComments()
+    userdata.U_msg = msg
+    userdata.U_Email_id = Email
+    userdata.Series_info =  Series_info.objects.using('web_series').get(id=id)
+    userdata.U_name = username
+    userdata.save(using='web_series')
+    return JsonResponse({'datetime':1})
+
+

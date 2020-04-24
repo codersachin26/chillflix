@@ -24,7 +24,7 @@
       <span><a href="/web">Web Series</a></span>
 
       <div class="cat">
-        <form action="categories">
+        <form action="/categories">
 
         <select id="categories" name="categories">
           <option selected>All Categories</option>
@@ -105,21 +105,18 @@
       {% for i in count%}
     <li>
 
-   <!-- <a href="/nextpage/{{i}}"> <div class="page-no">{{i}}</div></a></li> -->
 
    {%ifequal i active %}
-   <a href="/nextpage/{{i}}"> <div style="background-color: aqua;" class="page-no">{{i}}</div></a></li>
+   <a href="{% url 'nextpage' i %}"> <div style="background-color: aqua;" class="page-no">{{i}}</div></a></li>
    {% else %}
-   <li><a href="/nextpage/{{i}}"> <div class="page-no">{{i}}</div></a></li>
+   <li><a href="{% url 'nextpage' i %}"> <div class="page-no">{{i}}</div></a></li>
    
    {% endifequal %}
 
    {%endfor%}
 
    {%endblock%}
-   <!-- <li><a href="/nextpage/3"> <div class="page-no">3</div></a></li>
-   <li><a href="/nextpage/4"> <div class="page-no">4</div></a></li>
-   <li><a href="/nextpage/5"> <div class="page-no">5</div></a> -->
+
 
 </ul>
 {%endblock%}

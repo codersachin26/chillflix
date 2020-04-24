@@ -45,7 +45,6 @@ def lates(request):
 
 def find_movie(request):
     movie_name = request.GET.get('search')
-    #movie = Movie_info.objects.get(M_name=movie_name)
     try:
         movie = Movie_info.objects.get(M_name=movie_name)
         return render(request,'searchmovie.html',{'i':movie})
@@ -117,7 +116,6 @@ def usercmt(request):
     Email = request.POST.get('email')
     username = request.POST.get('username')
     id = request.POST.get('id')
-
     userdata = UserComments()
     userdata.U_msg = msg
     userdata.U_Email_id = Email

@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 
@@ -75,3 +76,14 @@ class Season_pics(models.Model):
 
     def __str__(self):
         return self.season.web_series.series_name+' S'+str(self.season.season_no)
+
+
+class UserComments(models.Model):
+    Series_info = models.ForeignKey('Series_info',on_delete=models.CASCADE)
+    U_msg = models.CharField(max_length=100)
+    U_Email_id = models.EmailField()
+    U_name = models.CharField(max_length=25)
+    cmt_date = models.DateTimeField(default= datetime.datetime.today())
+
+    def __str__(self):
+        return self.U_name

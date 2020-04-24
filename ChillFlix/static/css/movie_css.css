@@ -87,15 +87,7 @@ textarea{
   border: 2px solid #000;
   margin-bottom: 10px;
 }
-/* 
-span{
-  padding: 30px;
-  margin: 30px;
-  margin-right: 10px;
-  margin-left: -30px;
-  font-size: 20px;
 
-} */
 .cmt button{
   padding: 10px;
   border-radius: 5px;
@@ -173,7 +165,7 @@ h6{
 
   width: 58%;
   height: 2500px;
-  margin-left: 550px;
+  margin-left: 530px;
   margin-top: -850px;
   
   

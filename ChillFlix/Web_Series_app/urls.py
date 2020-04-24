@@ -8,5 +8,6 @@ urlpatterns = [
     path('download/<str:Q>/<int:id>',views.download_episode,name='download_episode'),
     path('play_series/<str:Q>/<int:id>',views.play_series,name='play_series'),
     path('nextpage/<int:no>',views.nextpage,name='nextpage'),
+    path('series_info/usercmt',views.usercmt,name='usercmt'),
 
     ]
