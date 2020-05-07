@@ -107,15 +107,16 @@
 
 
    {%ifequal i active %}
-   <a href="{% url 'nextpage' i %}"> <div style="background-color: aqua;" class="page-no">{{i}}</div></a></li>
+   <a href="/nextpage/{{i}} "> <div style="background-color: aqua;" class="page-no">{{i}}</div></a></li>
    {% else %}
-   <li><a href="{% url 'nextpage' i %}"> <div class="page-no">{{i}}</div></a></li>
+   <li><a href="/nextpage/{{i}}"> <div class="page-no">{{i}}</div></a></li>
    
    {% endifequal %}
 
    {%endfor%}
 
    {%endblock%}
+
 
 
 </ul>
