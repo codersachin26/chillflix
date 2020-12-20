@@ -1,2 +1,2 @@
-# chillflix
-this is a online movies and web series streaming &amp; downloading platform
+## chillflix
+# it is a online movies and web series streaming &amp; downloading platform
